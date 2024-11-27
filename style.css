@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+  }
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 270px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+ 
+.sidebar-top h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.sidebar-top ul {
+    list-style: none;
+}
+
+.sidebar-top a {
+  text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+}
+
+.sidebar-bottom ul {
+    list-style: none;
+}
+
+.select {
+    background-color: #f6f6f6;
+    color: #000;
+    padding-left: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.no-select {
+    background-color: #fff;
+    color: #000;
+    padding-left: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-right: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sidebar-bottom li {
+    margin-bottom: 8px;
+}
+
+.no-select:hover {
+    background-color: #f6f6f6;
+}
+
+.ico {
+    margin-right: 10px;
+    font-size: 14px;
+
+}
+
+.sidebar-bottom a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f6f6f6;
+}
+
+.content h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.dynamic-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    border: none;
+    background-color: #fff;
+    font-size: 15px;
+}
+
+.dynamic-table th,
+.dynamic-table td {
+    padding: 6px;
+    text-align: center;
+    border: none;
+    position: relative;
+}
+
+.dynamic-table thead {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.dynamic-table tbody tr {
+    position: relative;
+}
+
+.dynamic-table tbody tr::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0.5%;
+    width: 99%;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.dynamic-table th:not(:last-child)::after,
+.dynamic-table td:not(:last-child)::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 17%;
+    bottom: 17%;
+    right: 0;
+    width: 1px;
+    background-color: #ddd; /* Cor da linha */
+}
+
+.dynamic-table tbody tr:hover {
+    background-color: #f6f6f6;
+    cursor: pointer;
+}
+.button button {
+    background-color: #007cc2;
+    border: none;
+    padding: 6px 16px;
+    margin-bottom: 20px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button button:hover {
+    background-color: #00629b;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.form-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+}
+
+.form-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.form-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;   
+}
+
+.form-content select,
+.form-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-content select {
+    cursor: pointer;
+}
+
+.form-content button {
+    padding: 6px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.form-content button:first-child {
+    background-color: #ddd;
+    color: black;
+}
+  
+.form-content button:first-child:hover {
+    background-color: #ccc;
+}
+  
+.form-content button:last-child {
+    background-color: #007cc2;
+    color: white;
+}
+  
+.form-content button:last-child:hover {
+    background-color: #00629b;
+}

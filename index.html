@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" data-purpose="Layout StyleSheet" title="Web Awesome" href="/css/app-wa-4605c815f1874757bc9ac33aa114fb0f.css?vsn=d">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-duotone-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-duotone-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-duotone-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-duotone-light.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-light.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/duotone-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/duotone-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/duotone-light.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-top">
+                <h2>Painel de Controle</h2>
+            <ul>
+                <li class="tab select" data-content="reclamacoes"><i class="fa-regular fa-star ico"></i>Reclamações</li>
+             </ul>
+        </div>
+        <div class="sidebar-bottom">
+            <ul>
+                <li class="no-select"><i class="fa-regular fa-gear ico"></i>Configurações</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+    </div>
+    <template id="reclamacoes">
+        <div class="button">
+            <button onclick="openForm()"><i class="fa-regular fa-plus ico"></i>Novo</button>
+        </div>
+        <table border="1" class="dynamic-table">
+            <thead>
+                <tr>
+                    <th>Registro</th>
+                    <th>Nota Fiscal</th>
+                    <th>Fornecedor</th>
+                    <th>Motivo</th>
+                    <th>Prazo</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>123456</td>
+                    <td>Johnson</td>
+                    <td>Produto defeituoso</td>
+                    <td>5 dias</td>
+                    <td>Aberto</td>
+                    <td>Aguardando análise</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>654321</td>
+                    <td>Vincula</td>
+                    <td>Entrega atrasada</td>
+                    <td>3 dias</td>
+                    <td>Fechado</td>
+                    <td>Reembolso realizado</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="form" class="overlay">
+            <div class="form-content">
+                <h2>Nova reclamação</h2>
+                <form id="formulario">
+                <label for="responsavel">Responsável:</label>
+                <select id="responsavel">
+                    <option value="" disabled selected>Selecione o responsável...</option>
+                    <option value="Breno Borges Vieira">Breno Borges Vieira</option>
+                    <option value="Breno de Lucca Pimenta">Breno de Lucca Pimenta</option>
+                    <option value="Jorge Luis de Souza">Jorge Luis de Souza</option>
+                    <option value="Vinicius Araujo Gonçalves da Silva">Vinicius Araujo Gonçalves da Silva</option>
+                </select>
+                <div style="display: flex; gap: 10px;">
+                    <div style="flex: 1">
+                    <label for="notaFiscal">Nota Fiscal:</label>
+                    <input type="text" id="notaFiscal" placeholder="Número da nota..." maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '') "/>
+                    </div>
+                    <div style="flex: 2;">
+                    <label for="fornecedor">Fornecedor:</label>
+                    <select id="fornecedor">
+                        <option value="" disabled selected>Selecione o fornecedor...</option>
+                        <option value="Teste">Teste</option>
+                        <option value="Teste (Johnson)">Teste (Johnson)</option>
+                    </select>
+                    </div>
+                </div>
+                <label for="motivo">Motivo da não conformidade:</label>
+                <select id="motivo">
+                    <option value="" disabled selected>Selecione o motivo...</option>
+                    <option value="Quantidade a mais">Quantidade a mais</option>
+                    <option value="Quantidade a menos">Quantidade a menos</option>
+                    <option value="Produto errado">Produto errado</option>
+                </select>
+                <label for="acao">Ação a seguir:</label>
+                <select id="acao">
+                    <option value="" disabled selected>Selecione a ação desejada...</option>
+                    <option value="Devolução do material">Devolução do material</option>
+                    <option value="Crédito">Crédito</option>
+                    <option value="Carta de correção">Carta de correção</option>
+                </select>
+                <div style="flex: 1;">
+                    <label for="imagem">Anexar Imagem:</label>
+                    <input type="file" id="imagem" accept="image/*" multiple />
+                </div>
+                <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <button onclick="closeForm()">Fechar</button>
+                    <button type="button" id="enviarBtn">Enviar</button>
+                </div>
+                </form>
+                <div id="errorPopup" class="popup" style="display: none;">
+                <div class="popup-content">
+                    <p style="font-size: 14px; color: black; margin-top: 20px;">Por favor, preencha todos os campos obrigatórios antes de enviar.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const content = document.querySelector('.content');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('select', 'no-select'));
+                tabs.forEach(t => t.classList.add('no-select'));
+                tab.classList.remove('no-select');
+                tab.classList.add('select');
+                const templateID = tab.getAttribute('data-content');
+                uptadeContent(templateID);
+            });
+        });
+        function uptadeContent(templateID) {
+            const template = document.getElementById(templateID);
+            if (template) {
+                content.innerHTML = '';
+                content.appendChild(template.content.cloneNode(true));
+            }
+        }
+        function openForm() {
+            const form = document.getElementById('form');
+            form.style.animation = 'fadeIn 0.1s ease-in-out';
+            form.style.display = 'flex';
+        }
+        function closeForm() {
+            document.getElementById('form').style.display = 'none';
+        }
+        uptadeContent('reclamacoes');
+        document.getElementById('enviarBtn').addEventListener('click', function() {
+            var notaFiscal = document.getElementById('notaFiscal').value;
+            var fornecedor = document.getElementById('fornecedor').value;
+            var motivo = document.getElementById('motivo').value;
+            var acao = document.getElementById('acao').value;
+            if (!notaFiscal || !fornecedor || !motivo || !acao) {
+                document.getElementById('errorPopup').style.display = 'block';
+                return;
+            }
+            var tabela = document.querySelector('.dynamic-table tbody');
+            var novaLinha = document.createElement('tr');
+            var celulaRegistro = document.createElement('td');
+            celulaRegistro.textContent = '';
+            var celulaNotaFiscal = document.createElement('td');
+            celulaNotaFiscal.textContent = notaFiscal;
+            var celulaFornecedor = document.createElement('td');
+            celulaFornecedor.textContent = fornecedor;
+            var celulaMotivo = document.createElement('td');
+            celulaMotivo.textContent = motivo;
+            var celulaPrazo = document.createElement('td');
+            celulaPrazo.textContent = '';
+            var celulaStatus = document.createElement('td');
+            celulaStatus.textContent = '';
+            var celulaAcao = document.createElement('td');
+            celulaAcao.textContent = acao;
+            novaLinha.appendChild(celulaRegistro);
+            novaLinha.appendChild(celulaNotaFiscal);
+            novaLinha.appendChild(celulaFornecedor);
+            novaLinha.appendChild(celulaMotivo);
+            novaLinha.appendChild(celulaPrazo);
+            novaLinha.appendChild(celulaStatus);
+            novaLinha.appendChild(celulaAcao);
+            tabela.appendChild(novaLinha);
+            salvarDadosTabela('', notaFiscal, fornecedor, motivo, '', '', acao);
+            document.getElementById('formulario').reset();
+            closeForm();
+            if (!notaFiscal || !fornecedor || !motivo || !acao) {
+                document.getElementById('formulario').style.display = 'none';
+            }
+        });
+        import { getDatabase, ref, push, set, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+        const database = getDatabase(app);
+        function salvarDadosTabela(notaFiscal, fornecedor, motivo, acao) {
+            const tabelaRef = database.ref('tabela');
+            const novoRegistro = push(tabelaRef);
+            set(novoRegistro, {
+                registro: registro || null,
+                notaFiscal,
+                fornecedor,
+                motivo,
+                prazo: prazo || null,
+                status: status || null,
+                acao
+            })
+                .then(() => alert('Dados salvos com sucesso!'))
+                .catch((error) => alert('Erro ao salvar dados: ' + error.message));
+        }
+        function carregarDadosTabela() {
+            const tabelaRef = ref(database, 'tabela');
+            onValue(tabelaRef, (snapshot) => {
+                const registers = snapshot.val();
+                console.log(registers);
+                const tabelaBody = document.querySelector('.dynamic-table tbody');
+                tabelaBody.innerHTML = '';
+                for (let id in registers) {
+                    const register = registers[id];
+                    tabelaBody.innerHTML += `
+                        <tr>
+                            <td>${register.registro || ''}</td>
+                            <td>${register.notaFiscal}</td>
+                            <td>${register.fornecedor}</td>
+                            <td>${register.motivo}</td>
+                            <td>${register.prazo || ''}</td>
+                            <td>${register.status || ''}</td>
+                            <td>${register.acao}</td>
+                        </tr>`;
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarDadosTabela);
+    </script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAfl9umrjZymgAj2JOTiPovN0ZKGBIVQJE",
+            authDomain: "paineldecontrole8554.firebaseapp.com",
+            projectId: "paineldecontrole8554",
+            storageBucket: "paineldecontrole8554.firebasestorage.app",
+            messagingSenderId: "393989378533",
+            appId: "1:393989378533:web:33690f3c3a77882d79df0c",
+            measurementId: "G-2X7VWH7GZE"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+  </body>
+</html>
